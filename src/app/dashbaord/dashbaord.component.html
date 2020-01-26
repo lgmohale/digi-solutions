@@ -1,0 +1,176 @@
+<app-header></app-header>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-3">
+      <ul>
+        <li [class.active]="active == 'home'" (click)="menu('home')">Dashboard</li>
+        <li [class.active]="active == 'application'" (click)="menu('application')">Application Process</li>
+        <li [class.active]="active == 'accommodation'" (click)="menu('accommodation')">Apply For Accommodation</li>
+        <li [class.active]="active == 'documents'" (click)="menu('documents')">Your Documents</li>
+        <li [class.active]="active == 'funding'" (click)="menu('funding')">Funding</li>
+      </ul>
+    </div>
+    <div class="col-9">
+
+      <div *ngIf="active == 'home'" class="row Dashboard text-center">
+        <div class="col-6 text-default">
+          <i class="fa fa-laptop text-default"></i>
+          <h3>Application Process</h3>
+          <p>application status: {{applicationStatus()}}</p>
+        </div>
+        <div class="col-6 text-default">
+          <i class="fa fa-home text-default"></i>
+          <h3>Accommodation</h3>
+          <p>Not yet applied for accommodation</p>
+        </div>
+        <div class="col-6 text-default">
+          <i class="fa fa-dollar text-default"></i>
+          <h3>Funding</h3>
+          <p>No funding</p>
+        </div>
+        <div class="col-6 text-default">
+          <i class="fa fa-book"></i>
+          <h3>Documents</h3>
+          <p>No documents</p>
+        </div>
+      </div>
+
+      <div *ngIf="active == 'application'">
+        <div class="progressBar row">
+          <div [class.activeBar]="stage === 1 || stage > 1" class="col-3">
+            <p>Personal Details</p>
+          </div>
+          <div [class.activeBar]="stage === 2 || stage > 2" class="col-3">
+            <p>Select Course</p>
+          </div>
+          <div [class.activeBar]="stage === 3 || stage > 3" class="col-3">
+            <p>Upload Documents</p>
+          </div>
+          <div [class.activeBar]="stage === 4" class="col-3">
+            <p>Admission Status</p>
+          </div>
+          <div class="formBar col-12">
+            <form action="">
+
+              <div *ngIf="stage === 1" class="form-group">
+                <label for="usr">Name:</label>
+                <input type="text" class="form-control" id="usr">
+              </div>
+              <div *ngIf="stage === 1" class="form-group">
+                <label for="usr">Surname:</label>
+                <input type="text" class="form-control" id="usr">
+              </div>
+              <div *ngIf="stage === 1" class="form-group">
+                <label for="usr">Email:</label>
+                <input type="email" class="form-control" id="usr">
+              </div>
+              <div *ngIf="stage === 1" class="form-group">
+                <label for="usr">ID:</label>
+                <input type="text" class="form-control" id="usr">
+              </div>
+              <div *ngIf="stage === 1" class="form-group">
+                <label for="pwd">Password:</label>
+                <input type="password" class="form-control" id="pwd">
+              </div>
+
+              <div style="min-height: 15em" *ngIf="stage === 2">
+                <div class="form-group">
+                  <label for="sel1">Select First Choice:</label>
+                  <select class="form-control" id="sel1">
+                    <option>Course</option>
+                    <option>IT (System Development)</option>
+                    <option>Diploma In Accountancy</option>
+                    <option>Economics</option>
+                    <option>Engineering</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="sel1">Select Second Choice:</label>
+                  <select class="form-control" id="sel1">
+                    <option>Course</option>
+                    <option>IT (System Development)</option>
+                    <option>Diploma In Accountancy</option>
+                    <option>Economics</option>
+                    <option>Engineering</option>
+                  </select>
+                </div>
+              </div>
+
+
+              <div *ngIf="stage === 3" style="min-height: 15em">
+                <div class="form-group">
+                  <label for="sel1">ID Copy*:</label>
+                  <input type="file" class="form-control-file border" name="file">
+                </div>
+                <div class="form-group">
+                  <label for="sel1">Grade 11/12 Results: </label>
+                  <input type="file" class="form-control-file border" name="file">
+                </div>
+              </div>
+
+              <div style="min-height: 15em" *ngIf="stage === 4" class="form-group">
+                <h3>Status: Pending</h3>
+              </div>
+
+              <div class="text-right buttons">
+                <!-- <button class="btn btn-default" (click)="back()">Go back</button> -->
+                <button *ngIf="stage < 4" class="btn btn-success text-right" (click)="next()">next</button>
+              </div>
+
+            </form>
+          </div>
+
+
+        </div>
+      </div>
+
+      <div *ngIf="active == 'accommodation'" class="formBar2">
+        <form>
+          <div class="form-group col-12">
+            <label for="sel1">Type of Room:</label>
+            <select class="form-control" id="sel1">
+              <option>Select</option>
+              <option>Single</option>
+              <option>Sharing</option>
+            </select>
+          </div>
+
+          <div class="form-group col-12">
+            <label for="sel1">Gender:</label>
+            <select class="form-control" id="sel1">
+              <option>Select</option>
+              <option>Male</option>
+              <option>Female</option>
+            </select>
+          </div>
+
+          <div class="form-group col-12">
+            <label for="sel1">Funding:</label>
+            <select class="form-control" id="sel1">
+              <option>Select</option>
+              <option>Self</option>
+              <option>Bursary</option>
+              <option>NSFAS</option>
+            </select>
+          </div>
+
+        </form>
+      </div>
+
+      <div class="formBar2" *ngIf="active == 'documents'">
+          <div style="min-height: 25em" class="form-group">
+              <h3 style="margin: 20px;">No documents uploaded yet</h3>
+            </div>
+      </div>
+
+      <div class="formBar2" *ngIf="active == 'funding'">
+          <div style="min-height: 25em" class="form-group">
+              <h3 style="margin: 20px;">No Funding</h3>
+            </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>

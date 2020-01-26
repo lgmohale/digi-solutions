@@ -1,0 +1,20 @@
+<app-header></app-header>
+<div class="login-page">
+  <div class="form">
+    <form class="register-form">
+      <div *ngIf="!showReg" >
+        <input [autocomplete]="false" type="text" placeholder="name"/>
+        <input [autocomplete]="false" type="password" placeholder="password"/>
+        <input [autocomplete]="false" type="text" placeholder="email address"/>
+        <button><a href="/confirmation">create</a></button>
+        <p class="message">Already have a student number? <a (click)="showRegister()">Click here</a></p>
+      </div>
+      <div *ngIf="showReg" >
+        <input autocomplete="false" type="text" placeholder="student number"/>
+        <input autocomplete="false" type="password" placeholder="password"/>
+        <button><a href="/dashboard">login</a></button>
+        <p class="message">First time applicant? <a (click)="showRegister()">Click here to apply</a></p>
+      </div>
+    </form>
+  </div>
+</div>

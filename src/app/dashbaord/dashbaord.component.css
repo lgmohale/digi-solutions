@@ -1,0 +1,75 @@
+li {
+    list-style-type: none;
+    margin: 2em 0 2em 0em;
+    border-bottom: solid 1px #EEEEEE;
+    border-bottom: solid 1px rgb(194, 243, 220);
+    padding: 0.5em;
+}
+.col-9 {
+    /* border-left: solid 1px #EEEEEE; */
+    margin-right: -2.5em!important;
+}
+
+.active {
+    background-color: red;
+    background-color: rgb(20, 121, 90);
+    color: white;
+    cursor: default;
+}
+.activeBar {
+    background-color: rgb(20, 121, 90);
+    color: white;
+    cursor: default;
+}
+
+.progressBar .col-2:hover {
+    background-color: rgb(20, 121, 90);
+    color: white;
+    cursor: default;
+}
+ul li:hover{
+    background-color: red;
+    background-color: rgb(20, 121, 90);
+    color: rgb(194, 243, 220);
+    cursor: default;
+}
+
+.Dashboard {
+    margin-top: 2em;
+}
+
+.Dashboard div {
+    min-height: 12em;
+}
+
+.fa {
+    font-size: 3em;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.col-6 {
+    border: solid 1px #EEEEEE;
+    border: solid 1px rgb(194, 243, 220);
+}
+
+.progressBar div {
+    margin-top: 2em;
+    border: solid 1px rgb(194, 243, 220);
+    padding: 10px 10px 0 10px;
+}
+
+.formBar {
+    border: solid 1px rgb(194, 243, 220);
+    min-height: 20em;
+    margin-top: -.1em!important;
+}
+
+.formBar2 {
+    border: solid 1px rgb(194, 243, 220);
+    min-height: 25em;
+    margin-top: 2em!important;
+}
+
+.buttons button {
+    margin-right: 20px;
+}
